@@ -1,12 +1,24 @@
 import {Request, Response} from 'express'
 let yahooFinance = require('yahoo-finance');
 
-var today = new Date()
-var currentYear = today.getFullYear()
-var currentDate = currentYear +'-'+(today.getMonth()+1)+'-'+today.getDate()
-var PastDate = (currentYear-5) +'-'+(today.getMonth()+1)+'-'+today.getDate()
-
 export default async function handler (req: Request, res: Response) {
+  
+  var year = parseInt(req.params.year)
+  var today = new Date()
+  var currentYear = today.getFullYear()
+  var currentDate = currentYear +'-'+(today.getMonth()+1)+'-'+today.getDate()
+  var PastDate = (currentYear-year) +'-'+(today.getMonth()+1)+'-'+today.getDate()
+  
+  var period = 'm'
+  
+  if (year <= 5) {
+    period = 'w'
+  }
+  if (year == 1) {
+    period = 'd'
+  }
+
+
   if (!req.query || !req.query.symbol)
     res.status(400).end();
   else {
@@ -14,7 +26,7 @@ export default async function handler (req: Request, res: Response) {
       symbol: req.query.symbol,
       from: PastDate,
       to: currentDate,
-      period: req.query.period
+      period: period
     }, function (err: any, quotes: [{}]) {
       if (err)
         res.status(500).end();

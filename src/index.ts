@@ -12,7 +12,7 @@ app.use(cors({
 }))
 
 // @ts-ignore
-app.get('/api/stocks/query', (req: Request,res: Response)=> {
+app.get('/api/stocks/:year/query', (req: Request,res: Response)=> {
     yahoo(req, res)
 })
 
