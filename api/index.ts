@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import yahoo from './api/yahoo'
+import yahoo from './yahoo'
 import express from 'express'
 import cors from 'cors'
-const port: Number = 5000;
+const port: number = 5000;
 
 const app = express();
 
@@ -21,4 +21,6 @@ app.get('/api/stocks/:year/query', (req: Request,res: Response)=> {
     yahoo(req, res)
 })
 
-app.listen(port, () => console.log("Listening on port " + port));
+
+// tslint:disable-next-line:no-console
+app.listen(port, () => console.log(port));
