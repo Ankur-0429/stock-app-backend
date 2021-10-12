@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const yahoo_1 = __importDefault(require("./yahoo"));
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const port = 5005;
+const port = 8080;
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: 'https://stock-app-alpha.vercel.app/',
+    // origin: 'https://stock-app-ncxz169d6-ankur-0429.vercel.app/',
     credentials: true
 }));
 // @ts-ignore

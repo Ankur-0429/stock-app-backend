@@ -2,12 +2,11 @@ import { Request, Response } from 'express';
 import yahoo from './yahoo'
 import express from 'express'
 import cors from 'cors'
-const port: number = 5005;
-
+const port: number = 8080;
 const app = express();
 
 app.use(cors({
-    origin: 'https://stock-app-alpha.vercel.app/',
+    // origin: 'https://stock-app-ncxz169d6-ankur-0429.vercel.app/',
     credentials: true
 }))
 
