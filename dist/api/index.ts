@@ -5,10 +5,7 @@ import cors from 'cors'
 const port: number = 8080;
 const app = express();
 
-app.use(cors({
-    // origin: 'https://stock-app-ncxz169d6-ankur-0429.vercel.app/',
-    credentials: true
-}))
+app.use(cors())
 
 // @ts-ignore
 app.get('/', (req: Request, res: Response)=>{

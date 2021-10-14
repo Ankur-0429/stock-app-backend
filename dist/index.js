@@ -8,10 +8,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const port = 8080;
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)({
-    // origin: 'https://stock-app-ncxz169d6-ankur-0429.vercel.app/',
-    credentials: true
-}));
+app.use((0, cors_1.default)());
 // @ts-ignore
 app.get('/', (req, res) => {
     res.send('home');
